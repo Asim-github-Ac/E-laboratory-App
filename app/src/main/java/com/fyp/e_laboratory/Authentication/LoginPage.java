@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
@@ -51,7 +52,7 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
         mAuth = FirebaseAuth.getInstance();
-
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("ELabUsers");
         mLogin_btn=(Button)findViewById(R.id.lg_login);
         mSign_up=(Button)findViewById(R.id.lg_signup);
 
@@ -199,6 +200,12 @@ public class LoginPage extends AppCompatActivity {
 
 
             }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                mRegProgress.dismiss();
+                Toast.makeText(mContext, "error"+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
     private void beginRecovery(String email) {
@@ -229,5 +236,26 @@ public class LoginPage extends AppCompatActivity {
                 Toast.makeText(LoginPage.this,"Error Failed"+e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser != null){
+//
+//        }else {
+//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//            finish();
+//        }
+        PrefManager prefManager=new PrefManager(getApplicationContext());
+        if (prefManager.getToken_Email().equals("User")){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+           finish();
+        }else if (prefManager.getToken_Email().equals("Admin"))  {
+            startActivity(new Intent(getApplicationContext(),Admin_Home_Page.class));
+           finish();
+        }
     }
 }
