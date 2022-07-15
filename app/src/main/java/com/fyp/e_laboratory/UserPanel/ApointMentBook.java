@@ -36,7 +36,7 @@ public class ApointMentBook extends AppCompatActivity {
         addresss=findViewById(R.id.ap_address);
         phones=findViewById(R.id.ap_phone);
         progressBar=findViewById(R.id.ap_pbbar);
-
+        submit=findViewById(R.id.ap_submit);
         PrefManager prefManager=new PrefManager(getApplicationContext());
         uid=prefManager.getUserID();
 
@@ -57,8 +57,17 @@ public class ApointMentBook extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
-                AddApointment(names.getText().toString(),emails.getText().toString(),phones.getText().toString(),addresss.getText().toString(),time,uid);
+
+                if (emails.getText().toString().isEmpty() && phones.getText().toString().isEmpty() && addresss.getText().toString().isEmpty() && names.getText().toString().isEmpty()){
+                    emails.setError("Complete Requirements");
+                    names.setError("Complete Requirements");
+                    addresss.setError("Complete Requirements");
+                    phones.setError("Complete Requirements");
+                    Toast.makeText(ApointMentBook.this, "Something is Empty", Toast.LENGTH_SHORT).show();
+                }else {
+                    progressBar.setVisibility(View.VISIBLE);
+                    AddApointment(names.getText().toString(),emails.getText().toString(),phones.getText().toString(),addresss.getText().toString(),time,uid);
+                }
             }
         });
     }
