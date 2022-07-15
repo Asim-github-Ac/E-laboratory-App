@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asim Mehar/AndroidStudioProjects/MyApplication8/app/src/main/res/drawable/rect_btn.xml" value="0.165" />
+        <entry key="..\:/Users/Asim Mehar/AndroidStudioProjects/MyApplication8/app/src/main/res/font/yellowtail.xml" value="0.29846153846153844" />
+        <entry key="..\:/Users/Asim Mehar/AndroidStudioProjects/MyApplication8/app/src/main/res/layout/activity_login_page.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Asim Mehar/AndroidStudioProjects/MyApplication8/app/src/main/res/layout/activity_main.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/Asim Mehar/AndroidStudioProjects/MyApplication8/app/src/main/res/layout/activity_sign_up_page.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Asim Mehar/AndroidStudioProjects/MyApplication8/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
       </map>
     </option>
