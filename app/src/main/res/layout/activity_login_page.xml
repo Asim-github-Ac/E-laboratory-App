@@ -120,8 +120,9 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textSize="13dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nunito_semibold"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:text="Read our Privacy Policy. Tap on Log in Button to \naccept our Terms of Service"/>
 
 
@@ -130,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
 
                 android:background="@drawable/rect_btn"
