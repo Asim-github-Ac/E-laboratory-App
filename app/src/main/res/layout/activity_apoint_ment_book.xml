@@ -104,6 +104,13 @@
          android:gravity="center"
          android:layout_gravity="center"
          android:text="Change Time" />
+     <ProgressBar
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/ap_pbbar"
+         android:visibility="gone"
+         android:layout_margin="10dp"
+         />
      <Button
          android:id="@+id/ap_submit"
          android:layout_width="match_parent"
