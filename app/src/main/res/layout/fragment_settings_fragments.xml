@@ -8,15 +8,15 @@
         tools:context=".Fragments.SettingsFragments">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/p_profile"
-            android:layout_marginTop="20dp"
-            android:layout_width="80dp"
-            android:layout_centerHorizontal="true"
-            android:layout_height="100dp"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp"
-            android:src="@drawable/default_avatar" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/p_profile"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/default_avatar"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
 
         <TextView
             android:id="@+id/p_name"
