@@ -172,6 +172,7 @@ public class LoginPage extends AppCompatActivity {
                                         mRegProgress.dismiss();
                                             PrefManager prefManager=new PrefManager(getApplicationContext());
                                             prefManager.setToken_Email("User");
+                                            prefManager.setUserID(current_user_id);
                                             Intent mainIntent = new Intent(LoginPage.this, MainActivity.class);
                                             mainIntent.putExtra("id", current_user_id);
                                             startActivity(mainIntent);

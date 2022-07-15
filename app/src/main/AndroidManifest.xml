@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".UserPanel.ApointMentBook"
+            android:exported="false" />
+        <activity
             android:name=".UserPanel.Instruction"
             android:exported="false" />
         <activity
