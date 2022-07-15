@@ -92,7 +92,7 @@ public class SignUpPage extends AppCompatActivity {
                                         public void onSuccess(DocumentReference documentReference) {
                                             PrefManager prefManager=new PrefManager(getApplicationContext());
                                             prefManager.setToken_Email("User");
-                                            Intent mainIntent = new Intent(SignUpPage.this, MainActivity.class);
+                                            Intent mainIntent = new Intent(SignUpPage.this, LoginPage.class);
                                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(mainIntent);
                                             finish();
