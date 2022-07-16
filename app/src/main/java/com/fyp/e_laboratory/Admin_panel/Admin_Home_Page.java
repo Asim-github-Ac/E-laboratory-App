@@ -24,6 +24,12 @@ public class Admin_Home_Page extends AppCompatActivity {
         viewmedicines=findViewById(R.id.medicine_deliviry_Admin);
         logout=findViewById(R.id.logouts_admin);
 
+        viewreports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ViewAllReports.class));
+            }
+        });
         viewapointments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

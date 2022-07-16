@@ -49,6 +49,8 @@ public class ViewApointAdapters extends RecyclerView.Adapter<ViewApointAdapters.
 
                 Intent myactivity = new Intent(context.getApplicationContext(), SendPdfReportd.class);
                 myactivity.putExtra("id",apointmentModel.getUid());
+                myactivity.putExtra("pname",apointmentModel.getName());
+                myactivity.putExtra("number",apointmentModel.getPhone());
                 myactivity.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 context.getApplicationContext().startActivity(myactivity);
             }

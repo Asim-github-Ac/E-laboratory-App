@@ -28,7 +28,7 @@ public class SendPdfReportd extends AppCompatActivity {
     CardView uploadpdf;
     Uri imageuri = null;
     ProgressDialog dialog;
-    String myurl,uid;
+    String myurl,uid,number,pname;
     Button btnready;
     Intent intent;
     private DatabaseReference mDatabase;
@@ -40,6 +40,8 @@ public class SendPdfReportd extends AppCompatActivity {
 
         intent=getIntent();
         uid=intent.getStringExtra("id");
+        pname=intent.getStringExtra("pname");
+        number=intent.getStringExtra("number");
         uploadpdf=findViewById(R.id.uploadpdf);
         btnready=findViewById(R.id.uploadpdfload);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf");
@@ -103,6 +105,7 @@ public class SendPdfReportd extends AppCompatActivity {
 
                         myurl = uri.toString();
                         Toast.makeText(SendPdfReportd.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                        btnready.setVisibility(View.VISIBLE);
                     } else {
                         dialog.dismiss();
                         Toast.makeText(SendPdfReportd.this, "UploadedFailed", Toast.LENGTH_SHORT).show();
@@ -112,7 +115,7 @@ public class SendPdfReportd extends AppCompatActivity {
         }
     }
     public void UploadPdfFiles(String userid,String myurls){
-        PdfModel pdfModel=new PdfModel(userid,myurls);
+        PdfModel pdfModel=new PdfModel(userid,myurls,number,pname);
         mDatabase.child(userid).setValue(pdfModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
