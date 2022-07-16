@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".Admin_panel.SendPdfReportd"
+            android:exported="false" />
+        <activity
             android:name=".Admin_panel.medicine_Delivry"
             android:exported="false" />
         <activity

@@ -1,6 +1,9 @@
 package com.fyp.e_laboratory.AdminAdapters;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fyp.e_laboratory.Admin_panel.SendPdfReportd;
 import com.fyp.e_laboratory.Model.ApointmentModel;
 import com.fyp.e_laboratory.R;
 
@@ -38,11 +42,15 @@ public class ViewApointAdapters extends RecyclerView.Adapter<ViewApointAdapters.
         holder.tvname.setText(apointmentModel.getName());
         holder.tvaddress.setText(apointmentModel.getAddress());
         holder.tvtime.setText(apointmentModel.getPhone());
-        holder.tvphone.setText(apointmentModel.getPhone());
+        holder.tvphone.setText(apointmentModel.getTime());
         holder.btndelivry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Not Yet Implemente", Toast.LENGTH_SHORT).show();
+
+                Intent myactivity = new Intent(context.getApplicationContext(), SendPdfReportd.class);
+                myactivity.putExtra("id",apointmentModel.getUid());
+                myactivity.addFlags(FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(myactivity);
             }
         });
     }
