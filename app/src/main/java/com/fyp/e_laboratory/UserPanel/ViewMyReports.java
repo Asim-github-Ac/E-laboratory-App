@@ -1,4 +1,4 @@
-package com.fyp.e_laboratory.Admin_panel;
+package com.fyp.e_laboratory.UserPanel;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.fyp.e_laboratory.AdminAdapters.ViewPdfAdapter;
+import com.fyp.e_laboratory.Admin_panel.ViewAllReports;
 import com.fyp.e_laboratory.Model.PdfModel;
 import com.fyp.e_laboratory.R;
-import com.fyp.e_laboratory.SharedPrefrence.PrefManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,21 +21,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewAllReports extends AppCompatActivity {
-
+public class ViewMyReports extends AppCompatActivity {
     RecyclerView recyclerView;
     private DatabaseReference mDatabase;
     List<PdfModel> pdfModelList=new ArrayList<>();
-    PrefManager prefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_all_reports);
-        prefManager=new PrefManager(getApplicationContext());
-        String uid=prefManager.getUserID();
-
-        recyclerView=findViewById(R.id.myreports);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf").child(uid);
+        setContentView(R.layout.activity_view_my_reports);
+        recyclerView=findViewById(R.id.allreport);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -51,8 +46,9 @@ public class ViewAllReports extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(ViewAllReports.this, "error "+ error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewMyReports.this, "error "+ error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }

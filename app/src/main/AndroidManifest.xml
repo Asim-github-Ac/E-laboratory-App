@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".UserPanel.ViewMyReports"
+            android:exported="false" />
+        <activity
             android:name=".Admin_panel.ViewAllReports"
             android:exported="false" />
         <activity
