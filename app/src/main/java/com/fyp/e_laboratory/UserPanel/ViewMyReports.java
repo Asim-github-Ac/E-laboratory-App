@@ -12,6 +12,7 @@ import com.fyp.e_laboratory.AdminAdapters.ViewPdfAdapter;
 import com.fyp.e_laboratory.Admin_panel.ViewAllReports;
 import com.fyp.e_laboratory.Model.PdfModel;
 import com.fyp.e_laboratory.R;
+import com.fyp.e_laboratory.SharedPrefrence.PrefManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,11 +26,15 @@ public class ViewMyReports extends AppCompatActivity {
     RecyclerView recyclerView;
     private DatabaseReference mDatabase;
     List<PdfModel> pdfModelList=new ArrayList<>();
+    PrefManager prefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_my_reports);
-        recyclerView=findViewById(R.id.allreport);
+        recyclerView=findViewById(R.id.myreports);
+        prefManager=new PrefManager(getApplicationContext());
+        String uid=prefManager.getUserID();
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -37,9 +42,11 @@ public class ViewMyReports extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()){
                     PdfModel pdfModel=snapshot1.getValue(PdfModel.class);
-                    pdfModelList.add(pdfModel);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    recyclerView.setAdapter(new ViewPdfAdapter(getApplicationContext(),pdfModelList));
+                    if (pdfModel.getUid().equals(uid)) {
+                        pdfModelList.add(pdfModel);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        recyclerView.setAdapter(new ViewPdfAdapter(getApplicationContext(), pdfModelList));
+                    }
                 }
             }
 

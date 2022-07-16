@@ -26,16 +26,15 @@ public class ViewAllReports extends AppCompatActivity {
     RecyclerView recyclerView;
     private DatabaseReference mDatabase;
     List<PdfModel> pdfModelList=new ArrayList<>();
-    PrefManager prefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_reports);
-        prefManager=new PrefManager(getApplicationContext());
-        String uid=prefManager.getUserID();
 
-        recyclerView=findViewById(R.id.myreports);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf").child(uid);
+
+        recyclerView=findViewById(R.id.allreport);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf");
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
