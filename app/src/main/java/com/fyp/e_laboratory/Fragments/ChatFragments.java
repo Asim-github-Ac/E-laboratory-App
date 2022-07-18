@@ -28,7 +28,7 @@ LinearLayout linearLayout;
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phoneNumberWithCountryCode = "+923111487398";
+                String phoneNumberWithCountryCode = "+923086515351";
                 String message = "Hello this is E Laboratory Application Please Install this";
 
                 startActivity(
