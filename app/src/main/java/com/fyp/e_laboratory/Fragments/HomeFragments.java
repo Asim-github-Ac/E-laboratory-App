@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.fyp.e_laboratory.R;
 import com.fyp.e_laboratory.UserPanel.ApointMentBook;
 import com.fyp.e_laboratory.UserPanel.Instruction;
+import com.fyp.e_laboratory.UserPanel.ViewMedicine;
 import com.fyp.e_laboratory.UserPanel.ViewMyReports;
 
 
@@ -62,6 +63,12 @@ public class HomeFragments extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), ApointMentBook.class));
+            }
+        });
+        medi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ViewMedicine.class));
             }
         });
         report.setOnClickListener(new View.OnClickListener() {
