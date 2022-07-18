@@ -36,6 +36,12 @@ public class Admin_Home_Page extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),ViewApointMents.class));
             }
         });
+        viewmedicines.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ViewMedinesAdmin.class));
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,5 +51,6 @@ public class Admin_Home_Page extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }

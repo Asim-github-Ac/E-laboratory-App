@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".Admin_panel.ViewMedinesAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".UserPanel.ViewMedicine"
+            android:exported="false" />
+        <activity
             android:name=".UserPanel.ViewMyReports"
             android:exported="false" />
         <activity

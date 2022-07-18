@@ -51,6 +51,7 @@ public class ViewApointAdapters extends RecyclerView.Adapter<ViewApointAdapters.
                 myactivity.putExtra("id",apointmentModel.getUid());
                 myactivity.putExtra("pname",apointmentModel.getName());
                 myactivity.putExtra("number",apointmentModel.getPhone());
+                myactivity.putExtra("address",apointmentModel.getAddress());
                 myactivity.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 context.getApplicationContext().startActivity(myactivity);
             }

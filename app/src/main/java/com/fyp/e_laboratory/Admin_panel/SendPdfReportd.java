@@ -28,7 +28,7 @@ public class SendPdfReportd extends AppCompatActivity {
     CardView uploadpdf;
     Uri imageuri = null;
     ProgressDialog dialog;
-    String myurl,uid,number,pname;
+    String myurl,uid,number,pname,mediaddress;
     Button btnready;
     Intent intent;
     private DatabaseReference mDatabase;
@@ -42,6 +42,8 @@ public class SendPdfReportd extends AppCompatActivity {
         uid=intent.getStringExtra("id");
         pname=intent.getStringExtra("pname");
         number=intent.getStringExtra("number");
+        mediaddress=intent.getStringExtra("address");
+
         uploadpdf=findViewById(R.id.uploadpdf);
         btnready=findViewById(R.id.uploadpdfload);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("ELabPdf");
@@ -121,6 +123,14 @@ public class SendPdfReportd extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(SendPdfReportd.this, "Pdf Uploaded", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getApplicationContext(),medicine_Delivry.class);
+                    intent.putExtra("id",userid);
+                    intent.putExtra("pname",pname);
+                    intent.putExtra("number",number);
+                    intent.putExtra("address",mediaddress);
+                    startActivity(intent);
+
+                   /// startActivity(getApplication(),medicine_Delivry.class);
                 }
             }
         }).addOnCompleteListener(new OnCompleteListener<Void>() {
