@@ -2,15 +2,16 @@ package com.fyp.e_laboratory.Model;
 
 public class ApointmentModel {
 
-    String name,email,phone,address,time,uid;
+    String name,email,phone,address,time,uid,city;
 
-    public ApointmentModel(String name, String email, String phone, String address, String time, String uid) {
+    public ApointmentModel(String name, String email, String phone, String address, String time, String uid,String city) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.time = time;
         this.uid = uid;
+        this.city=city;
     }
 
     public ApointmentModel() {
@@ -62,5 +63,13 @@ public class ApointmentModel {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

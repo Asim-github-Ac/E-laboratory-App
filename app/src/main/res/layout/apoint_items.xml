@@ -111,6 +111,22 @@
                 android:layout_marginStart="50dp"
                 android:id="@+id/patiensAddress"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:textColor="@color/black"
+                android:layout_marginStart="50dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Faisalabad"
+                android:textColor="@color/black"
+                android:layout_marginStart="50dp"
+                android:id="@+id/city"
+                />
             <Button
                 android:id="@+id/medi_delivry_items"
                 android:layout_width="match_parent"

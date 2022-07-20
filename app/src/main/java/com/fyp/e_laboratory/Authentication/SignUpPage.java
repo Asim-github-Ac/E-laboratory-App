@@ -60,19 +60,20 @@ public class SignUpPage extends AppCompatActivity {
                 final String  email=mEmail.getText().toString();
                 final String password=mPassword.getText().toString();
                 final String city=mCity.getText().toString();
+                String phone=mPhone.getText().toString().trim();
                 if(!TextUtils.isEmpty(display_name) || !TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)) {
                     mRegProgress.setTitle("Registering User");
                     mRegProgress.setMessage("Please wait while we create your account !");
                     mRegProgress.setCanceledOnTouchOutside(false);
                     mRegProgress.show();
-                    register_user(display_name, email, password, city);
+                    register_user(display_name, email, password, city,phone);
 
                 }
 
             }
         });
     }
-    private void register_user(final String display_name, final String email, String password, final String city) {
+    private void register_user(final String display_name, final String email, String password, final String city,String phone) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -81,7 +82,7 @@ public class SignUpPage extends AppCompatActivity {
                     FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
                     assert current_user != null;
                     String uid = current_user.getUid();
-                    UserData userData = new UserData(display_name,email,city,"default",uid);
+                    UserData userData = new UserData(display_name,email,city,"default",uid,phone);
                     FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
                     mDatabase.child(uid).setValue(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -90,8 +91,7 @@ public class SignUpPage extends AppCompatActivity {
                                     firebaseFirestore.collection("ELabUsers").add(userData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
-                                            PrefManager prefManager=new PrefManager(getApplicationContext());
-                                            prefManager.setToken_Email("User");
+
                                             Intent mainIntent = new Intent(SignUpPage.this, LoginPage.class);
                                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(mainIntent);

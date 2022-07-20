@@ -6,15 +6,16 @@ public class UserData {
     String city;
     String image;
     String uid;
+    String phone;
 
 
-    public UserData(String name, String email, String city, String image, String uid) {
+    public UserData(String name, String email, String city, String image, String uid, String phone) {
         this.name = name;
         this.email = email;
         this.city = city;
         this.image = image;
         this.uid = uid;
-
+        this.phone = phone;
     }
 
     public UserData() {
@@ -56,7 +57,13 @@ public class UserData {
         return uid;
     }
 
+    public String getPhone() {
+        return phone;
+    }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public void setUid(String uid) {
         this.uid = uid;

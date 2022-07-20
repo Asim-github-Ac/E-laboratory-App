@@ -43,6 +43,7 @@ public class ViewApointAdapters extends RecyclerView.Adapter<ViewApointAdapters.
         holder.tvaddress.setText(apointmentModel.getAddress());
         holder.tvtime.setText(apointmentModel.getPhone());
         holder.tvphone.setText(apointmentModel.getTime());
+        holder.city.setText(apointmentModel.getCity());
         holder.btndelivry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +65,7 @@ public class ViewApointAdapters extends RecyclerView.Adapter<ViewApointAdapters.
     }
 
     public class myHoder extends RecyclerView.ViewHolder {
-        TextView tvname,tvphone,tvaddress,tvtime;
+        TextView tvname,tvphone,tvaddress,tvtime,city;
         Button btndelivry;
 
         public myHoder(@NonNull View itemView) {
@@ -73,6 +74,8 @@ public class ViewApointAdapters extends RecyclerView.Adapter<ViewApointAdapters.
             tvaddress=itemView.findViewById(R.id.patiensAddress);
             tvphone=itemView.findViewById(R.id.patientsphone);
             tvtime=itemView.findViewById(R.id.patientstime);
+            city=itemView.findViewById(R.id.city);
+
             btndelivry=itemView.findViewById(R.id.medi_delivry_items);
 
 
